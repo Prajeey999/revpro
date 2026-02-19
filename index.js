@@ -194,7 +194,7 @@ app.get("/auth/patreon/callback", async (req, res) => {
     }
 
     // Fixed key naming (consistent with validate-token)
-    tokenCache.set(`pat_token_pat-${patId}`, userAccessToken, 3600);
+    tokenCache.set(`pat_token_${patId}`, userAccessToken, 3600);
 
     const jwtToken = jwt.sign(
       { id: `pat-${patId}`, email, authType: "patreon" },
