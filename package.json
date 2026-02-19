@@ -1,0 +1,29 @@
+{
+  "name": "license-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": "18.x"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.96.0",
+    "axios": "^1.13.5",
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.2.1",
+    "helmet": "^8.1.0",
+    "hpp": "^0.2.3",
+    "ioredis": "^5.9.3",
+    "jsonwebtoken": "^9.0.3",
+    "node-cache": "^5.1.2",
+    "node-fetch": "^3.3.2",
+    "qs": "^6.15.0",
+    "rate-limit-redis": "^4.3.1",
+    "uuid": "^13.0.0"
+  }
+}
