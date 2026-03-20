@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    { "source": "/auth/patreon/mobile-callback", "destination": "/api/auth/mobile-callback" },
+    { "source": "/auth/patreon/mobile", "destination": "/api/auth/mobile" },
+    { "source": "/auth/patreon/callback", "destination": "/api/auth/callback" },
+    { "source": "/auth/patreon", "destination": "/api/auth/patreon" },
+    { "source": "/validate-token", "destination": "/api/validate-token" },
+    { "source": "/verify", "destination": "/api/verify" },
+    { "source": "/refresh-session", "destination": "/api/refresh-session" },
+    { "source": "/generate", "destination": "/api/generate" }
+  ]
+}
