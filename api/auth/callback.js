@@ -39,7 +39,7 @@ module.exports = async (req, res) => {
 
     const jwtToken = jwt.sign(
       { id: `pat-${patId}`, email, authType: "patreon" },
-      process.env.JWT_SECRET, { expiresIn: "30m" }
+      process.env.JWT_SECRET, { expiresIn: "7d" }
     );
     const refreshToken = jwt.sign(
       { id: `pat-${patId}`, email, authType: "patreon" },
