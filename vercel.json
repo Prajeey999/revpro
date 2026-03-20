@@ -1,25 +1,4 @@
 ﻿{
-  "rewrites": [
-    { "source": "/auth/patreon/mobile-callback", "destination": "/api/auth/mobile-callback" },
-    { "source": "/auth/patreon/mobile", "destination": "/api/auth/mobile" },
-    { "source": "/auth/patreon/callback", "destination": "/api/auth/callback" },
-    { "source": "/auth/patreon", "destination": "/api/auth/patreon" },
-    { "source": "/validate-token", "destination": "/api/validate-token" },
-    { "source": "/verify", "destination": "/api/verify" },
-    { "source": "/refresh-session", "destination": "/api/refresh-session" },
-    { "source": "/generate", "destination": "/api/generate" }
-  ],
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        { "key": "Access-Control-Allow-Origin", "value": "*" },
-        { "key": "Access-Control-Allow-Methods", "value": "GET, POST, OPTIONS" },
-        { "key": "Access-Control-Allow-Headers", "value": "Content-Type, Authorization, ngrok-skip-browser-warning" },
-        { "key": "Access-Control-Allow-Credentials", "value": "true" }
-      ]
-    }
-  ],
   "routes": [
     {
       "src": "/(.*)",
@@ -27,10 +6,18 @@
       "headers": {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type, Authorization, ngrok-skip-browser-warning"
+        "Access-Control-Allow-Headers": "Content-Type, Authorization, ngrok-skip-browser-warning",
+        "Access-Control-Allow-Credentials": "true"
       },
-      "status": 200,
-      "continue": false
-    }
+      "status": 200
+    },
+    { "src": "/auth/patreon/mobile-callback", "dest": "/api/auth/mobile-callback" },
+    { "src": "/auth/patreon/mobile", "dest": "/api/auth/mobile" },
+    { "src": "/auth/patreon/callback", "dest": "/api/auth/callback" },
+    { "src": "/auth/patreon", "dest": "/api/auth/patreon" },
+    { "src": "/validate-token", "dest": "/api/validate-token" },
+    { "src": "/verify", "dest": "/api/verify" },
+    { "src": "/refresh-session", "dest": "/api/refresh-session" },
+    { "src": "/generate", "dest": "/api/generate" }
   ]
 }
