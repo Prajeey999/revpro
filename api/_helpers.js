@@ -41,8 +41,8 @@ const getDurationMs = (durationStr) => {
 
 // Store Patreon access token in Supabase (replaces in-memory NodeCache)
 const storePatreonToken = async (patId, accessToken) => {
-  await supabase.from("patreon_tokens").upsert({
-    patreon_id: patId,
+  await supabase.from("patreon_sessions").upsert({
+    user_id: patId,
     access_token: accessToken,
     updated_at: new Date().toISOString(),
   });
@@ -51,9 +51,9 @@ const storePatreonToken = async (patId, accessToken) => {
 // Get Patreon access token from Supabase
 const getPatreonToken = async (patId) => {
   const { data } = await supabase
-    .from("patreon_tokens")
+    .from("patreon_sessions")
     .select("access_token")
-    .eq("patreon_id", patId)
+    .eq("user_id", patId)
     .single();
   return data?.access_token || null;
 };
