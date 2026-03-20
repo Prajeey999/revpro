@@ -86,11 +86,7 @@ const checkMembership = (userData, creatorId) => {
 };
 
 const setCors = (req, res) => {
-  const allowedOrigins = (process.env.ALLOWED_ORIGINS || "").split(",").map((o) => o.trim());
-  const origin = req.headers.origin;
-  if (!origin || allowedOrigins.includes(origin) || allowedOrigins.includes("*")) {
-    res.setHeader("Access-Control-Allow-Origin", origin || "*");
-  }
+  res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization, ngrok-skip-browser-warning");
   res.setHeader("Access-Control-Allow-Credentials", "true");
