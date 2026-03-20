@@ -1,4 +1,4 @@
-{
+﻿{
   "rewrites": [
     { "source": "/auth/patreon/mobile-callback", "destination": "/api/auth/mobile-callback" },
     { "source": "/auth/patreon/mobile", "destination": "/api/auth/mobile" },
@@ -18,6 +18,19 @@
         { "key": "Access-Control-Allow-Headers", "value": "Content-Type, Authorization, ngrok-skip-browser-warning" },
         { "key": "Access-Control-Allow-Credentials", "value": "true" }
       ]
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "methods": ["OPTIONS"],
+      "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type, Authorization, ngrok-skip-browser-warning"
+      },
+      "status": 200,
+      "continue": false
     }
   ]
 }
