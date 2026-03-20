@@ -1,4 +1,4 @@
-﻿const axios = require("axios");
+const axios = require("axios");
 const jwt = require("jsonwebtoken");
 const { supabase, setCors, getPatreonToken, getCreatorId, checkMembership } = require("./_helpers");
 
@@ -26,7 +26,7 @@ module.exports = async (req, res) => {
     }
 
     if (decoded.authType === "patreon") {
-      const userAccessToken = await getPatreonToken(decoded.id);
+      const userAccessToken = await getPatreonToken(decoded.id.replace("pat-", ""));
       console.log("patreon id:", decoded.id);
       console.log("has token:", !!userAccessToken);
 
