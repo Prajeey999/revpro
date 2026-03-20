@@ -1,4 +1,3 @@
-Set-Content -Path vercel.json -Encoding UTF8 -Value @'
 {
   "rewrites": [
     { "source": "/auth/patreon/mobile-callback", "destination": "/api/auth/mobile-callback" },
@@ -22,4 +21,3 @@ Set-Content -Path vercel.json -Encoding UTF8 -Value @'
     }
   ]
 }
-'@
