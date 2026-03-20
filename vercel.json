@@ -1,3 +1,4 @@
+Set-Content -Path vercel.json -Encoding UTF8 -Value @'
 {
   "rewrites": [
     { "source": "/auth/patreon/mobile-callback", "destination": "/api/auth/mobile-callback" },
@@ -8,5 +9,17 @@
     { "source": "/verify", "destination": "/api/verify" },
     { "source": "/refresh-session", "destination": "/api/refresh-session" },
     { "source": "/generate", "destination": "/api/generate" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET, POST, OPTIONS" },
+        { "key": "Access-Control-Allow-Headers", "value": "Content-Type, Authorization, ngrok-skip-browser-warning" },
+        { "key": "Access-Control-Allow-Credentials", "value": "true" }
+      ]
+    }
   ]
 }
+'@
