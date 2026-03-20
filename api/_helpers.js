@@ -1,6 +1,6 @@
 const crypto = require("crypto");
 const axios = require("axios");
-const supabase = require("./supabase");
+const supabase = require("./_supabase");
 
 const JWT_SECRET = process.env.JWT_SECRET;
 const REFRESH_SECRET = process.env.REFRESH_SECRET;
