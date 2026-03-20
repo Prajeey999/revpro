@@ -1,9 +1,9 @@
-const jwt = require('jsonwebtoken');
-const { handleCors } = require('../lib/cors');
+const jwt = require("jsonwebtoken");
+const { applyCors } = require("./_helpers");
 
 module.exports = async (req, res) => {
-  if (handleCors(req, res)) return;
-  if (req.method !== 'POST') return res.status(405).end();
+  applyCors(req, res);
+  if (req.method === "OPTIONS") return res.status(200).end();
 
   const { refreshToken } = req.body;
   if (!refreshToken) return res.status(401).json({ success: false });
@@ -13,10 +13,10 @@ module.exports = async (req, res) => {
     const newToken = jwt.sign(
       { id: decoded.id, email: decoded.email, authType: decoded.authType },
       process.env.JWT_SECRET,
-      { expiresIn: '30m' }
+      { expiresIn: "30m" }
     );
     res.json({ success: true, token: newToken });
-  } catch {
-    res.status(401).json({ success: false, message: 'Refresh expired' });
+  } catch (e) {
+    res.status(401).json({ success: false, message: "Refresh expired" });
   }
 };
