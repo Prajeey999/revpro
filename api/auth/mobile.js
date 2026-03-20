@@ -1,7 +1,7 @@
-const { applyCors } = require("../_helpers");
+const { setCors } = require("../_helpers");
 
 module.exports = (req, res) => {
-  applyCors(req, res);
+  setCors(req, res);
   if (req.method === "OPTIONS") return res.status(200).end();
 
   const redirectUri = encodeURIComponent(process.env.PATREON_REDIRECT_URI_MOBILE);

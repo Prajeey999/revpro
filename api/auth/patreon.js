@@ -1,6 +1,6 @@
-const { setCors } = require("../../lib/helpers");
+const { setCors } = require("../_helpers");
 
-module.exports = async (req, res) => {
+module.exports = (req, res) => {
   setCors(req, res);
   if (req.method === "OPTIONS") return res.status(200).end();
 

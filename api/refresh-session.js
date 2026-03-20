@@ -1,8 +1,8 @@
 const jwt = require("jsonwebtoken");
-const { applyCors } = require("./_helpers");
+const { setCors } = require("./_helpers");
 
 module.exports = async (req, res) => {
-  applyCors(req, res);
+  setCors(req, res);
   if (req.method === "OPTIONS") return res.status(200).end();
 
   const { refreshToken } = req.body;
